@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <h1>Code Generator Spinner and Slider</h1>
+    <div class="main">
+      <div class="form" class="html-part">
+        <form action="#" class="html-form">
+          <div class="input-group">
+            <label for="prefix">Enter Prefix Value</label>
+            <input
+              type="text"
+              id="prefix"
+              placeholder="if fSlider/fSpinner, Enter f"
+            />
+          </div>
+          <div class="input-group">
+            <label for="label">Enter Label Value</label>
+            <input
+              type="text"
+              id="label"
+              placeholder="Enter label value: F or /&omega/; like that"
+            />
+          </div>
+          <div class="input-group">
+            <label for="unit">Enter unit Value</label>
+            <input type="text" id="unit" placeholder="Enter unit value" />
+          </div>
+          <div class="input-group">
+            <label for="unit">Enter initial value</label>
+            <input type="text" id="initial" placeholder="Enter initial value" />
+          </div>
+          <div class="input-group">
+            <label for="unit">Enter min Value</label>
+            <input type="text" id="min" placeholder="Enter min value" />
+          </div>
+          <div class="input-group">
+            <label for="max">Enter max Value</label>
+            <input type="text" id="max" placeholder="Enter unit value" />
+          </div>
+          <div class="input-group">
+            <label for="step">Enter step Value</label>
+            <input type="text" id="step" placeholder="Enter step value" />
+          </div>
+
+          <div class="input-group">
+            <button class="html-button">Generate HTML code</button>
+            <button class="html-clear">Clear Form</button>
+            <button class="html-varinit">Varinit code</button>
+            <button class="html-varchange">Varchange code</button>
+          </div>
+        </form>
+        <div class="output">
+          <textarea
+            name="htmlOutput"
+            id="htmlText"
+            cols="30"
+            rows="10"
+            class="html-output"
+          ></textarea>
+          <button class="html-text">Clear TextArea</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

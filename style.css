@@ -1,0 +1,71 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+h1 {
+  text-align: center;
+}
+
+.main {
+  max-width: 100%;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 2rem;
+  background-color: white;
+  border: 1px solid gray;
+  background-color: beige;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 2px;
+  gap: 1rem;
+}
+
+.html-form {
+  background-color: rgb(248, 194, 128);
+  padding: 1rem;
+}
+
+textarea {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.input-group + .input-group {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+input {
+  padding: 1rem;
+  width: 100%;
+}
+
+button {
+  padding: 2rem;
+  background-color: rgb(107, 107, 209);
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: inherit;
+  border-radius: 2px;
+  margin: 0.2rem;
+}
