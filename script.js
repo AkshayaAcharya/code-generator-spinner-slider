@@ -18,7 +18,8 @@ textCase.addEventListener("click", (e) => {
 });
 htmlButton.addEventListener("click", (e) => {
   e.preventDefault();
-
+  htmlOutput.textContent = "";
+  if (prefix.value == "" || label.value == "" || unit.value == "") return;
   const varDivCode = `
     <div class="var-div">
       <div class="input-container">
@@ -41,6 +42,7 @@ htmlClear.addEventListener("click", (e) => {
   min.value = "";
   max.value = "";
   step.value = "";
+  textCase.checked = false;
 });
 
 htmlText.addEventListener("click", (e) => {
@@ -50,6 +52,16 @@ htmlText.addEventListener("click", (e) => {
 
 function varinit(e) {
   e.preventDefault();
+  htmlOutput.textContent = "";
+
+  if (
+    prefix.value == "" ||
+    label.value == "" ||
+    unit.value == "" ||
+    initial.value == ""
+  )
+    return;
+
   const varinitContent = ` 
   $("#${prefix.value}${s}lider").slider("value", ${initial.value});
   $("#${prefix.value}${s}pinner").spinner("value", ${initial.value});
@@ -61,6 +73,18 @@ htmlVarinit.addEventListener("click", (e) => varinit(e));
 
 function varchange(e) {
   e.preventDefault();
+  htmlOutput.textContent = "";
+
+  if (
+    prefix.value == "" ||
+    label.value == "" ||
+    unit.value == "" ||
+    initial.value == "" ||
+    min.value == "" ||
+    max.value == "" ||
+    step.value == ""
+  )
+    return;
   const varchangeContent = `
   //Variable ${prefix.value} slider and number input types
   $('#${prefix.value}${s}lider').slider({ max : ${max.value}, min : ${min.value}, step : ${step.value} });		// slider initialisation : jQuery widget
