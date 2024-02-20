@@ -11,17 +11,22 @@ const initial = document.querySelector("#initial");
 const min = document.querySelector("#min");
 const max = document.querySelector("#max");
 const step = document.querySelector("#step");
+const textCase = document.querySelector("#case");
+let s = "S";
+textCase.addEventListener("click", (e) => {
+  s = textCase.checked ? "s" : "S";
+});
 htmlButton.addEventListener("click", (e) => {
   e.preventDefault();
 
   const varDivCode = `
     <div class="var-div">
       <div class="input-container">
-        <label for="${prefix.value}Spinner">${label.value}</label>
-        <input class="var-spinner" id="${prefix.value}Spinner" name="value" />
+        <label for="${prefix.value}${s}pinner">${label.value}</label>
+        <input class="var-spinner" id="${prefix.value}${s}pinner" name="value" />
         <span>${unit.value}</span>
       </div>
-      <div class="var-slider" id="${prefix.value}Slider"></div>
+      <div class="var-slider" id="${prefix.value}${s}lider"></div>
     </div>
   `;
   htmlOutput.textContent = varDivCode;
@@ -43,28 +48,30 @@ htmlText.addEventListener("click", (e) => {
   htmlOutput.value = "";
 });
 
-function varinit() {
+function varinit(e) {
+  e.preventDefault();
   const varinitContent = ` 
-  $("#${prefix.value}Slider").slider("value", ${initial.value});
-  $("#${prefix.value}Spinner").spinner("value", ${initial.value});
+  $("#${prefix.value}${s}lider").slider("value", ${initial.value});
+  $("#${prefix.value}${s}pinner").spinner("value", ${initial.value});
   `;
   htmlOutput.textContent = varinitContent;
 }
 
-htmlVarinit.addEventListener("click", varinit);
+htmlVarinit.addEventListener("click", (e) => varinit(e));
 
-function varchange() {
+function varchange(e) {
+  e.preventDefault();
   const varchangeContent = `
   //Variable ${prefix.value} slider and number input types
-  $('#${prefix.value}Slider').slider({ max : ${max.value}, min : ${min.value}, step : ${step.value} });		// slider initialisation : jQuery widget
-  $('#${prefix.value}Spinner').spinner({ max : ${max.value}, min : ${min.value}, step : ${step.value} });		// number initialisation : jQuery widget			
+  $('#${prefix.value}${s}lider').slider({ max : ${max.value}, min : ${min.value}, step : ${step.value} });		// slider initialisation : jQuery widget
+  $('#${prefix.value}${s}pinner').spinner({ max : ${max.value}, min : ${min.value}, step : ${step.value} });		// number initialisation : jQuery widget			
   // monitoring change in value and connecting slider and number
   // setting trace point coordinate arrays to empty on change of link length
-  $( "#${prefix.value}Slider" ).on( "slide", function( e, ui ) { $('#${prefix.value}Spinner').spinner("value",ui.value); ptx=[]; pty=[]; } );
-  $( "#${prefix.value}Spinner" ).on( "spin", function( e, ui ) { $('#${prefix.value}Slider').slider("value",ui.value); ptx=[]; pty=[]; } );
-  $( "#${prefix.value}Spinner" ).on( "change", function() {  varchange() } );
+  $( "#${prefix.value}${s}lider" ).on( "slide", function( e, ui ) { $('#${prefix.value}${s}pinner').spinner("value",ui.value); ptx=[]; pty=[]; } );
+  $( "#${prefix.value}${s}pinner" ).on( "spin", function( e, ui ) { $('#${prefix.value}${s}lider').slider("value",ui.value); ptx=[]; pty=[]; } );
+  $( "#${prefix.value}${s}pinner" ).on( "change", function() {  varchange() } );
   `;
   htmlOutput.textContent = varchangeContent;
 }
 
-htmlVarchange.addEventListener("click", varchange);
+htmlVarchange.addEventListener("click", (e) => varchange(e));

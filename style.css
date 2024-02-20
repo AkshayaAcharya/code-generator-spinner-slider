@@ -54,9 +54,28 @@ textarea {
   margin-bottom: 1rem;
 }
 
+.input-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+  justify-self: flex-end;
+}
+label {
+  justify-self: center;
+}
+
 input {
   padding: 1rem;
-  width: 100%;
+  /* width: 100%; */
+  display: inline-block;
+}
+
+input[type="checkbox"] {
+  justify-self: flex-start;
+  margin-left: 2rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 button {
